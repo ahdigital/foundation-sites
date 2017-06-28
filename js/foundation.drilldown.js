@@ -176,7 +176,7 @@ class Drilldown extends Plugin {
   _registerEvents() {
     if(this.options.scrollTop){
       this._bindHandler = this._scrollTop.bind(this);
-      this.$element.on('open.zf.drilldown hide.zf.drilldown closed.zf.drilldown',this._bindHandler);
+      this.$element.on('open.zf.drilldownMenu hide.zf.drilldownMenu closed.zf.drilldownMenu',this._bindHandler);
     }
     this.$element.on('mutateme.zf.trigger', this._resize.bind(this));
   }
@@ -195,7 +195,7 @@ class Drilldown extends Plugin {
         * Fires after the menu has scrolled
         * @event Drilldown#scrollme
         */
-      if(this===$('html')[0])_this.$element.trigger('scrollme.zf.drilldown');
+      if(this===$('html')[0])_this.$element.trigger('scrollme.zf.drilldownMenu');
     });
   }
 
@@ -298,7 +298,7 @@ class Drilldown extends Plugin {
          * Fires when the menu is fully closed.
          * @event Drilldown#closed
          */
-    this.$element.trigger('closed.zf.drilldown');
+    this.$element.trigger('closed.zf.drilldownMenu');
   }
 
   /**
@@ -355,7 +355,7 @@ class Drilldown extends Plugin {
      * Fires when the submenu has opened.
      * @event Drilldown#open
      */
-    this.$element.trigger('open.zf.drilldown', [$elem]);
+    this.$element.trigger('open.zf.drilldownMenu', [$elem]);
   };
 
   /**
@@ -378,7 +378,7 @@ class Drilldown extends Plugin {
      * Fires when the submenu has closed.
      * @event Drilldown#hide
      */
-    $elem.trigger('hide.zf.drilldown', [$elem]);
+    $elem.trigger('hide.zf.drilldownMenu', [$elem]);
   }
 
   /**
